@@ -1,6 +1,6 @@
 # Friday, 2nd August 2024
 
-# Quote of the day: Sacrifice current comfort for the future comfort and greatness. 🔥
+# Quote of the day: Sacrifice current comfort for future comfort and greatness. 🔥
 
 The contest I am giving today is: Leetcode - Weekly Contest 408
 
