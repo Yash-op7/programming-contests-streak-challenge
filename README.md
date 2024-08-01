@@ -17,4 +17,6 @@ The average person is:
 # Fcuk Being Normal, I'm gonna strive for greatness🔥💪🏻
 
 ## Day 1 Score: LC 2/4
-### Reason for bad score: Couldn't solve a subtring question and the last question had an edge case that I couldn't solve.
+### Reason for bad score: 
+- 3rd que - Couldn't solve a subtring question
+- 4th que - had an edge case that I couldn't solve.
