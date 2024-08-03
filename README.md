@@ -19,4 +19,8 @@ The average person is:
 ## Day 1 Score: LC 2/4
 ### Reason for bad score: 
 - 3rd que - Couldn't solve a subtring question
-- 4th que - had an edge case that I couldn't solve.
+- 4th que - had an edge case that I couldn't solve. - reach (X, Y) from (0,0) without touching any circles
+
+## Day 2 Score: LC 3/4
+### Reason for bad score: 
+- 4th que - ran out of time - Tree Multiple DFS type question
