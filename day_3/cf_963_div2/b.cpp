@@ -1,30 +1,48 @@
 #include<bits/stdc++.h>
 using namespace std;
+#define vi vector<ll>
+#define ll long long
+#define pb push_back
 
 int main() {
-    int tt;
+    ll tt;
     cin >> tt;
     while(tt--) {
-        string str; int n;
+        ll n;
         cin >> n;
-        getline(cin, str);
-        getline(cin, str);
-        int a = 0, b=0,c=0,d=0;
-        for(char x:str) {
-            a += (x=='A') ? 1:0;
-            b += (x=='B') ? 1:0;
-            c += (x=='C') ? 1:0;
-            d += (x=='D') ? 1:0;
+        ll mx_odd=-1;
+        multiset<ll> evens;
+        for(ll i=0;i<n;i++) {
+            ll x;
+            cin >> x;
+            if(x %2 == 0) {evens.insert(x);}
+            else {mx_odd = max(mx_odd, x);}
         }
-        int k = n;
-        int ans = min(a, k) + min(b, k) + min(c, k) + min(d, k);
+        long long ans = 0;
+        if(mx_odd == -1) {
+            cout << ans << '\n';
+            continue;
+        }
+        ll x = mx_odd;
+        while(!evens.empty()) {
+            int y = *evens.begin(), max_y = *evens.rbegin();
+            if(x > y) {
+                x += y;
+                evens.erase(evens.begin());
+            } else {
+                x += max_y;
+            }
+            ans++;
+        }
         cout << ans << '\n';
     }
 }
 
-// 4
+// 0
+// 0
 // 2
 // 4
-// 0
-// 9
-// 13
+// 3
+// 3
+// 3
+
