@@ -5,7 +5,7 @@
 
 const int MOD = 1e9 + 7;
 
-// count monotonic pairs 1
+// count monotonic pairs 1, where 1 <= nums[i] <= 50
 class Solution {
 public:
     int f(int idx, int li, int ld, auto &a, const int n, auto &t) {
