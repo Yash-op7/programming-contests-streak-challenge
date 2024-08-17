@@ -1,11 +1,29 @@
 #define vi vector<int>
 #define vvi vector<vi>
 #define pb push_back
+#define ll long long
+
+const int MOD = 1e9 + 7;
 
 // count monotonic pairs 1
 class Solution {
 public:
+    int f(int idx, int li, int ld, auto &a, const int n, auto &t) {
+        if(idx == n) return 1;
+        if(a[idx] < li) return 0;
+        if(t[idx][li][ld] != -1) return t[idx][li][ld];
+        ll ans = 0;
+        for(int i=li;i<=a[idx];i++) {
+            if(a[idx] - i <= ld && a[idx] - i >= 0) {
+                ans += f(idx+1, i, a[idx]-i, a, n, t);
+                ans = ans % MOD;
+            }
+        }
+        return t[idx][li][ld] = ans;
+    }
     int countOfPairs(vector<int>& nums) {
-        
+        int n = nums.size();
+        vector<vvi>t(n, vvi(51, vi(51, -1)));
+        return f(0, 0, 50, nums, n, t);
     }
 };
