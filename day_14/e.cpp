@@ -66,7 +66,7 @@ void solve() {
             ans += ((ll)locs[i]+2) * suff[i+1];
             ans %= MOD;
         }
-        if(x.first == 0) {
+        if(x.first ==0) {
             ans += (ll)suff[0];
             ans %= MOD;
         }
