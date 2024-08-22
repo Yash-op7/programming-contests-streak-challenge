@@ -16,7 +16,7 @@ using namespace std;
 #define inp(n, a) for(int i=0;i<n;i++) cin >> a[i];
 #define pb push_back
 const ll INF = 1e12;
-const int MOD = 1e9 + 7;c
+const int MOD = 1e9 + 7;
 
 void print(auto &pref) {
     int n = pref.size();
@@ -56,18 +56,18 @@ void solve() {
     for(auto &x:m) {
         vi &locs = x.second;
         int sz = locs.size();
-        vi suff(sz,0);
+        vector<ll> suff(sz,0);
         
         for(int i=sz-1;i>=0;i--) {
-            suff[i] = (i+1 < sz ? suff[i+1]:0) + n - locs[i];
+            suff[i] = (ll)(i+1 < sz ? (ll)suff[i+1]:0) + (ll)n - locs[i];
         }
 
         for(int i=0;i<sz-1;i++) {
-            ans += (locs[i]+2) * suff[i+1];
+            ans += ((ll)locs[i]+2) * suff[i+1];
             ans %= MOD;
         }
         if(x.first == 0) {
-            ans += suff[0];
+            ans += (ll)suff[0];
             ans %= MOD;
         }
     }

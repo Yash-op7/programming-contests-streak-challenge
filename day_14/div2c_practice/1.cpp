@@ -18,36 +18,46 @@ using namespace std;
 const ll INF = 1e12;
 const int MOD = 1e9 + 7;
 
-bool solve() {
-    int n;
-    cin >> n;
-    vector<string>words(n);
-    for(int i=0;i<n;i++) cin >> words[i];
-    string a;
-    cin >> a;
 
-    vector<int> rank(26, 0);
-    for(int i=0;i<26;i++) rank[a[i]-'a'] = i;
-
-    for(int i=0;i<words.size()-1;i++) {
-        string x = words[i], y = words[i+1];
-        for(int j=0;j<min(x.length(), y.length());j++) {
-            if(x[j] != y[j]) {
-                if(rank[x[j] - 'a'] > rank[y[j]-'a']) {
-                    return false;
-                } else {
-                    return true;
-                }
-            }
+ll solve() {
+    int n, m;
+    cin >> n >> m;
+    vi c(n);
+    inp(n, c);
+    vvi a(n, vi(m));
+    for(int i=0;i<n;i++) {
+        for(int j=0;j<m;j++) {
+            cin >> a[i][j];
         }
     }
-    return true;
+    vector<vector<ll>>adj[n];
+    for(int i=0;i<n;i++) {
+        int src = i;
+        int cost = INT_MAX;
+        for(int j=0;j<m;j++) {
+            
+        }
+    }
+    pq<vector<ll>, vector<vector<ll>>, greater<ll>>q;
+    q.push({0, 0});
+    int dest = n-1;
+
+    while(!q.empty()) {
+        ll src = q.top()[1], curr_cost = q.top()[0];
+        q.pop();
+
+        if(src == dest) {
+            return curr_cost;
+        }
+
+
+    }
 }
 
 int main() {
-    if(solve()) {
-        cout << "True";
-    } else {
-        cout << "False";
-    }
+    ios::sync_with_stdio(false); cin.tie(0);
+    int tt;
+    cin >> tt;
+    while(tt--) cout << solve() << '\n';
 }
+
