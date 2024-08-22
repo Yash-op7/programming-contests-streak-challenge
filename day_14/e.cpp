@@ -16,7 +16,7 @@ using namespace std;
 #define inp(n, a) for(int i=0;i<n;i++) cin >> a[i];
 #define pb push_back
 const ll INF = 1e12;
-const int MOD = 1e9 + 7;
+const int MOD = 1e9 + 7;c
 
 void print(auto &pref) {
     int n = pref.size();

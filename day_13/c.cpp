@@ -27,26 +27,29 @@ int get(int l, int r) {
     return x; 
 }
 
-void f(int l, int r, auto &adj, auto &t, int &cnt, int &rem) {
-    cnt--;
-    if(cnt < 0 || rem == 0) {
+void f(int l, int r, auto &adj, auto &t, int &cnt, int &rem, auto&t2) {
+    if(rem == 0 || t2[l-1][r-1]) {
         return;
     }
     int x;
-    if(t[l][r] != -1) {
-        x = t[l][r];
+    if(t[l-1][r-1] != -1) {
+        x = t[l-1][r-1];
     } else {
+        if(cnt < 0) return;
+        cnt--;
         x = get(l, r);
-        t[l][r] = x;
+        t[l-1][r-1] = x;
     }
     if(x == l) {
         adj[l-1].pb(r-1);
         adj[r-1].pb(l-1);
+        t2[l-1][r-1] = true;
+        cout << "Edge betweem " << x << " & " << r << '\n';
         rem--;
         return;
     } else {
-        f(l, x, adj, t, cnt, rem);
-        f(x, r, adj, t, cnt, rem);
+        f(l, x, adj, t, cnt, rem, t2);
+        f(x, r, adj, t, cnt, rem, t2);
     }
 }
 
@@ -54,18 +57,19 @@ void solve() {
     int n;
     cin >> n;
     vvi adj(n);
+    vector<vector<bool>>t2(n, vector<bool>(n, false));
     vector<vector<int>>t(n, vector<int>(n, -1));
     int count = 15*n;
     int rem = n-1;
     for(int i=2;i<=n;i++) {
-        f(1, i, adj, t, count, rem);
+        f(1, i, adj, t, count, rem, t2);
     }
     set<pair<int,int>>edges;
     for(int i=0;i<n;i++) {
         for(const auto x:adj[i]) {
             edges.insert({
-                min(i, x),
-                max(i, x)
+                min(i, x) + 1,
+                max(i, x) + 1
             });
         }
     }
