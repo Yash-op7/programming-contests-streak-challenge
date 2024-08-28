@@ -1,3 +1,4 @@
 1. using MOD where it is not required at all and which will just make the entire algorithm invalid
 2. using n instead of make
 3. exit condition slighlty erroneous
+4. 
